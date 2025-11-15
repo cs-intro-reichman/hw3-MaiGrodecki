@@ -45,14 +45,15 @@ public class LoanCalc {
 		iterationCounter = 0;
 		double eb = endBalance(loan, rate, n, payment);
 		while (eb > epsilon) {
-			eb = endBalance(loan, rate, n, payment);
-			if (eb <= epsilon) {
-				payment--;
-				iterationCounter--;
-				return payment;
-        	}
-			payment++;
+			//if (eb <= epsilon) {
+			//	payment--;
+			//	iterationCounter--;
+			//	return payment;
+        	//}
+			payment = payment + epsilon;
 			iterationCounter++;
+			eb = endBalance(loan, rate, n, payment);
+
 
 		}
 		return payment;
