@@ -64,8 +64,9 @@ public class Anagram {
 		String newWord = "";
 		char selected;
 		for(int i = 0; i < str.length(); i++){
-			selected = str.charAt((int)(Math.random() * str.length() - 1));
-			str = str.substring(0, i) + str.substring(i + 1);
+			int rand = (int)(Math.random() * (str.length() - 1));
+			selected = str.charAt(rand);
+			str = str.substring(0, rand) + str.substring(rand + 1);
 			newWord = newWord + selected;
 		}
 		return newWord;
