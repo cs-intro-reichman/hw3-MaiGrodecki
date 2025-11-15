@@ -27,9 +27,16 @@ public class Algebra {
 	public static int plus(int x1, int x2) {
 		int i = 0;
 		int result = x1;
-		while (i < x2){
+		if (x2 >= 0){
+			while (i < x2){
 			result++;
 			i++;
+		}
+		} else {
+			while (i > x2){
+			result--;
+			i--;
+			}
 		}
 		return result;
 	}
@@ -38,9 +45,16 @@ public class Algebra {
 	public static int minus(int x1, int x2) {
 		int i = 0;
 		int result = x1;
-		while (i < x2){
+		if (x2 > 0){
+			while (i < x2){
 			result--;
 			i++;
+			}
+		} else {
+			while (i > x2){
+			result++;
+			i--;
+			}
 		}
 		return result;
 	}
@@ -49,15 +63,29 @@ public class Algebra {
 	public static int times(int x1, int x2) {
 		int i = 0;
 		int result = 0;
-		while (i < x2){
+		if (x2 > 0){
+			while (i < x2){
 			result = plus(result, x1);
 			i++;
+			}
+		} else {
+			while (i > x2){
+			result = minus(result, x1);
+			i--;
+			}
 		}
+		
 		return result;
 	}
 
 	// Returns x^n (for n >= 0)
 	public static int pow(int x, int n) {
+		if (n == 0){
+			return 1;
+		}
+		if (x == 0){
+			return 0;
+		}
 		int i = 0;
 		int result = 1;
 		while (i < n){
@@ -69,6 +97,9 @@ public class Algebra {
 
 	// Returns the integer part of x1 / x2 
 	public static int div(int x1, int x2) {
+		if (x2 == 0){
+			return 0;
+		}
 		int count = 0;
 		int result = x1;
 		while (result >= x2){
