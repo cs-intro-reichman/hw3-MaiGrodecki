@@ -63,8 +63,8 @@ public class Anagram {
 	public static String randomAnagram(String str) {
 		String newWord = "";
 		char selected;
-		for(int i = 0; i < str.length(); i++){
-			int rand = (int)(Math.random() * (str.length() - 1));
+		while (str.length() > 0){
+			int rand = (int)(Math.random() * (str.length()));
 			selected = str.charAt(rand);
 			str = str.substring(0, rand) + str.substring(rand + 1);
 			newWord = newWord + selected;
